@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>md editor</title>
+    <script src="lib/remarkable.min.js"></script>
+  </head>
+  <body>
+    <div class="">
+      <textarea id='id-input-src' name="name" rows="8" cols="80"></textarea>
+      <div class="editor-result">
+
+      </div>
+    </div>
+
+    <script>
+      var e = sel => document.querySelector(sel)
+      e('#id-input-src').addEventListener('input', function() {
+        var src = event.target.value
+        var md = new Remarkable()
+        var html = md.render(src)
+        e('.editor-result').innerHTML = html
+      })
+    </script>
+  </body>
+</html>

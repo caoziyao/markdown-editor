@@ -1,0 +1,11 @@
+{
+    "name": "markdown-editor",
+    "version": "0.0.1",
+    "main": "./main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "dependencies": {
+        "remarkable": "^1.7.1"
+    }
+}
