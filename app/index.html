@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" href="./css.css">
 </head>
 <body>
-<h1>Hello World!</h1>
+<h1>Markdown-editor</h1>
 We are using node <script>document.write(process.versions.node)</script>,
 Chrome <script>document.write(process.versions.chrome)</script>,
 and Electron <script>document.write(process.versions.electron)</script>.
+
+
+<div class="">
+    <textarea id='id-input-src' name="name" rows="8" cols="80"></textarea>
+    <div class="editor-result">
+    </div>
+</div>
+
+<script>
+    var Remarkable = require('remarkable');
+
+    var e = sel => document.querySelector(sel)
+    e('#id-input-src').addEventListener('input', function() {
+        var src = event.target.value
+        var md = new Remarkable()
+        var html = md.render(src)
+        e('.editor-result').innerHTML = html
+    })
+</script>
+
 </body>
 </html>
