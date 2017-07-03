@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./static/css/common.css">
     <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 <!-- <h1>Markdown-editor</h1> -->
@@ -41,61 +42,22 @@
     <div class="side-menu" style="margin-left: 0px;">
             <div id="logo">MOEDITOR</div>
             <ul class="slidemenu-ul">
-                <li data-action="new" class="l10n" data-origin-text="New">新建</li>
-                <li data-action="open" class="l10n" data-origin-text="Open">打开</li>
-                <li data-action="save" class="l10n" data-origin-text="Save">保存</li>
-                <li data-action="save-as" class="l10n" data-origin-text="Save as">另存为</li>
+                <li id="id-new" data-action="new" class="l10n" data-origin-text="New">新建</li>
+                <li id="id-open" data-action="open" class="l10n" data-origin-text="Open">打开</li>
+                <li id="id-save" data-action="save" class="l10n" data-origin-text="Save">保存</li>
+                <li id="id-saveas" data-action="save-as" class="l10n" data-origin-text="Save as">另存为</li>
                 <li class="break"></li>
-                <li data-action="export-as-html" class="l10n" data-origin-text="Export as HTML">导出为 HTML</li>
-                <li data-action="export-as-pdf" class="l10n" data-origin-text="Export as PDF">导出为 PDF</li>
+                <li id="id-export-html" data-action="export-as-html" class="l10n" data-origin-text="Export as HTML">导出为 HTML</li>
+                <li id="id-export-pdf" data-action="export-as-pdf" class="l10n" data-origin-text="Export as PDF">导出为 PDF</li>
                 <li class="break"></li>
-                <li data-action="settings" class="l10n" data-origin-text="Settings">设置</li>
-                <li data-action="about" class="l10n" data-origin-text="About">关于</li>
+                <li id="id-setting" data-action="settings" class="l10n" data-origin-text="Settings">设置</li>
+                <li id="id-about" data-action="about" class="l10n" data-origin-text="About">关于</li>
             </ul>
         </div>
   </div>
 
 </div>
 
-<script>
-    var Remarkable = require('remarkable');
-
-    var e = sel => document.querySelector(sel);
-
-    var log = console.log.bind(console);
-
-    var closeParent = (target, element) => {
-      var ele = e(element)
-      var par = target.parentElement
-      log('par', par)
-    }
-
-    // markdown 事件监听
-    e('#id-input-src').addEventListener('input', function() {
-        var src = event.target.value
-        var md = new Remarkable()
-        var html = md.render(src)
-        e('.editor-result').innerHTML = html
-    })
-
-
-    // 填出侧边栏
-    e('#id-slide-btn').addEventListener('click', function(event) {
-      var sideMenu = e('#id-slidemenu');
-      var elemClass = sideMenu.classList
-
-      if (elemClass.contains('showhide')) {
-        elemClass.remove('showhide')
-      } else {
-        elemClass.add('showhide')
-      }
-
-    })
-
-
-
-
-</script>
 
 </body>
 </html>
