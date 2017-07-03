@@ -12,10 +12,18 @@ markdown 编辑器
 x-- 安装 electron
 x-- 框架
 x-- Electron demo
+x- html demo
 
 
-
-- html demo
+- 动画效果
+- 新建
+- 打开
+- 保存
+- 另存为
+- 导出 html
+- 导出 pdf
+- 设置
+- 关于
 
 
 

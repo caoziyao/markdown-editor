@@ -1,0 +1,134 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.showhide {
+    display: none;
+}
+
+
+input:focus, textarea:focus {
+   outline: none;
+}
+
+#id-input-src {
+    font-size: 16px;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.main-left-panel{
+  width: 50%;
+  height: calc(100% - 25px);
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+
+}
+
+.input-src {
+  border-style:none;
+  background-color: rgb(245, 245, 245);
+}
+
+.main-right-panel{
+  background-color: #fff;
+  width: 40%;
+  height: calc(100% - 25px);
+  padding: 10px;
+}
+
+.editor-result {
+  padding-left: 20px;
+}
+
+
+/*button*/
+
+.cover-bottom{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  z-index: 1000;
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  -webkit-app-region: no-drag;
+}
+
+.button-bottom {
+  display: inline-block;
+  pointer-events: auto;
+  color: #b3b3b3;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 3px;
+}
+
+.fa-bars:before {
+  content: "\f0c9";
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing;
+}
+
+.fa-bars:hover {
+  cursor: pointer;
+}
+
+
+/*侧边栏*/
+#id-slidemenu {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: #fafafa;
+  transition: all 200ms ease-in-out;
+  cursor: default;
+  z-index: 1;
+  border-right: 1px solid #ccc;
+}
+
+.slidemenu-ul li:hover{
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.slidemenu-ul li{
+  font-family: Roboto, Helvetica, 'Segoe UI', Arial, sans-serif;
+    list-style-type: none;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.slidemenu-ul li.break {
+    height: 10px;
+    pointer-events: none;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 10px;
+}
+
+#logo {
+  font-family: Raleway;
+  font-size: 35px;
+  font-weight: lighter;
+  letter-spacing: 10px;
+  text-align: center;
+  color: #666;
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 30px;
+}
