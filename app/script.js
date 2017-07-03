@@ -61,13 +61,15 @@ var sideLoutListener = function () {
 var newListener = function () {
     var ele = e('#id-new');
     ele.addEventListener('click', function () {
-
+        var c = e('#id-input-src')
+        var content = c.value
+        createFile(content)
     })
 }
 
 
 var createFile = function (content) {
-    let content = "Some text to save into the file";
+    // let content = "Some text to save into the file";
 
     // You can obviously give a direct path without use the dialog (C:/Program Files/path/myfileexample.txt)
     dialog.showSaveDialog((fileName) => {
@@ -171,7 +173,6 @@ var __main = function () {
     newListener()
     sideLoutListener()
     initMenu()
-    readSingleFile()
 
 
 }
