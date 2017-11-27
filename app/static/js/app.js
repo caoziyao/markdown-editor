@@ -4,22 +4,22 @@
 
 const {remote} = require('electron');
 const {Menu, BrowserWindow, MenuItem, shell} = remote;
-var fs = require('fs');
+const fs = require('fs');
 const {dialog} = require('electron').remote;
 
-var Remarkable = require('remarkable');
-var e = sel => document.querySelector(sel);
+const Remarkable = require('remarkable');
+const e = sel => document.querySelector(sel);
 
-var log = console.log.bind(console);
+const log = console.log.bind(console);
 
-var closeParent = (target, element) => {
+const closeParent = (target, element) => {
     var ele = e(element)
     var par = target.parentElement
     log('par', par)
 }
 
 // append default actions to menu for OSX
-var initMenu = function () {
+const initMenu = function () {
     try {
         var nativeMenuBar = new Menu();
         if (process.platform == "darwin") {
@@ -32,7 +32,7 @@ var initMenu = function () {
 };
 
 // markdown 事件监听
-var markdownListener = function () {
+const markdownListener = function () {
     e('#id-input-src').addEventListener('input', function() {
         var src = event.target.value
         var md = new Remarkable()
@@ -43,7 +43,7 @@ var markdownListener = function () {
 }
 
 // 填出侧边栏
-var sideLoutListener = function () {
+const sideLoutListener = function () {
     e('#id-slide-btn').addEventListener('click', function(event) {
         var sideMenu = e('#id-slidemenu');
         var elemClass = sideMenu.classList
@@ -58,7 +58,7 @@ var sideLoutListener = function () {
 }
 
 // 新建按钮
-var newListener = function () {
+const newListener = function () {
     var ele = e('#id-new');
     ele.addEventListener('click', function () {
         var c = e('#id-input-src')
@@ -68,7 +68,7 @@ var newListener = function () {
 }
 
 
-var createFile = function (content) {
+const createFile = function (content) {
     // let content = "Some text to save into the file";
 
     // You can obviously give a direct path without use the dialog (C:/Program Files/path/myfileexample.txt)
@@ -90,7 +90,7 @@ var createFile = function (content) {
 }
 
 
-var readSingleFile = function () {
+const readSingleFile = function () {
     dialog.showOpenDialog((fileNames) => {
         // fileNames is an array that contains all the selected
         if(fileNames === undefined){
@@ -110,7 +110,7 @@ var readSingleFile = function () {
     });
 }
 
-var updateExistingFile = function () {
+const updateExistingFile = function () {
     var filepath = "C:/Previous-filepath/existinfile.txt";// you need to save the filepath when you open the file to update without use the filechooser dialog againg
     var content = "This is the new content of the file";
 
@@ -125,7 +125,7 @@ var updateExistingFile = function () {
     });
 }
 
-var deleteFile = function () {
+const deleteFile = function () {
     var filepath = "C:/Path-toFile/file.txt";// Previously saved path somewhere
 
     if (fs.existsSync(filepath)) {
@@ -142,7 +142,7 @@ var deleteFile = function () {
     }
 }
 
-var selectAFolder = function () {
+const selectAFolder = function () {
     dialog.showOpenDialog({
         title:"Select a folder",
         properties: ["openDirectory"]
@@ -157,7 +157,7 @@ var selectAFolder = function () {
     });
 }
 
-var readMultiFile = function (fileNames) {
+const readMultiFile = function (fileNames) {
     dialog.showOpenDialog({
         properties: [
             'openFile', 'multiSelections', (fileNames) => {
@@ -168,13 +168,11 @@ var readMultiFile = function (fileNames) {
 }
 
 
-var __main = function () {
+const __main = function () {
     markdownListener()
     newListener()
     sideLoutListener()
     initMenu()
-
-
 }
 
 
