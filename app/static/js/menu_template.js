@@ -36,7 +36,7 @@ const template_file = {
 const template_edit = {
   label: 'Edit',
   submenu: [{
-    label: 'aaaUndo',
+    label: 'Undo',
     accelerator: 'CmdOrCtrl+Z',
     role: 'undo'
   }, {
