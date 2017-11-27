@@ -2,15 +2,20 @@
  * Created by cczy on 2017/7/4.
  */
 
+const fs = require('fs');
+
 const {remote} = require('electron');
 const {Menu, BrowserWindow, MenuItem, shell} = remote;
-const fs = require('fs');
+
 const {dialog} = require('electron').remote;
 
 const Remarkable = require('remarkable');
-const e = sel => document.querySelector(sel);
+const {log, e} = require('./static/js/utils.js')
+const {GwMenu} = require('./static/js/menu.js')
+const electron = require('electron')
+const app = remote.app
 
-const log = console.log.bind(console);
+
 
 const closeParent = (target, element) => {
     var ele = e(element)
@@ -18,17 +23,9 @@ const closeParent = (target, element) => {
     log('par', par)
 }
 
-// append default actions to menu for OSX
 const initMenu = function () {
-    try {
-        var nativeMenuBar = new Menu();
-        if (process.platform == "darwin") {
-            nativeMenuBar.createMacBuiltin && nativeMenuBar.createMacBuiltin("FileExplorer");
-        }
-    } catch (error) {
-        console.error(error);
-        setTimeout(function () { throw error }, 1);
-    }
+    let menu = GwMenu.new()
+    menu.init()
 };
 
 // markdown 事件监听
@@ -39,7 +36,6 @@ const markdownListener = function () {
         var html = md.render(src)
         e('.editor-result').innerHTML = html
     })
-
 }
 
 // 填出侧边栏
