@@ -1,19 +1,33 @@
 
-const fs = require('fs');
+const fs = require('fs')
 const {log} = require('./utils.js')
-const {dialog} = require('electron').remote;
+const {dialog} = require('electron').remote
 
-class GwDialog {
+class FileDialog {
     constructor() {
 
     }
 
-    static open() {
-        dialog.showOpenDialog((fileNames) => {
-            // fileNames is an array that contains all the selected
-            log('filename', fileNames)
+    static open(callback) {
+        let properties ={
+            properties: [
+                'openFile',
+                //'openDirectory',
+                //'multiSelections',
+        ]}
+        dialog.showOpenDialog(properties, (fileNames) => {
+            let text = ''
+            let fileName = ''
+            if (fileNames.length > 0) {
+                fileName = fileNames[0]
+                text = fs.readFileSync(fileName, 'utf8');
+            } else {
+                text = ''
+            }
+            callback(text, fileName)
         });
     }
+
 }
 
 
@@ -125,4 +139,4 @@ const readMultiFile = function (fileNames) {
     });
 }
 
-module.exports.GwDialog = GwDialog
+module.exports.FileDialog = FileDialog

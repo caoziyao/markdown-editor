@@ -23,6 +23,8 @@ const template_file = {
 	type: 'separator'
 	}, {
 	label: 'Save',
+    accelerator: 'CmdOrCtrl+S',
+    click: menuFile.save,
 	}, {
 	label: 'Save As...',
 	}, {
