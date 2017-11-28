@@ -1,7 +1,7 @@
 const {template} = require('./menu_template.js')
+const {log, e} = require('../utils.js')
 const {remote} = require('electron');
 const {Menu, BrowserWindow, MenuItem, shell} = remote;
-const {log, e} = require('./utils.js')
 const electron = require('electron')
 const app = remote.app
 
@@ -65,49 +65,50 @@ class GwMenu {
         return reopenMenuItem
     }
 
+    defaultMenuItem() {
+        const name = remote.app.getName()
+
+        template.unshift({
+            label: name,
+            submenu: [{
+                label: `About ${name}`,
+                role: 'about'
+            }, {
+                type: 'separator'
+            }, {
+                label: 'Services',
+                role: 'services',
+                submenu: []
+            }, {
+                type: 'separator'
+            }, {
+                label: `Hide ${name}`,
+                accelerator: 'Command+H',
+                role: 'hide'
+            }, {
+                label: 'Hide Others',
+                accelerator: 'Command+Alt+H',
+                role: 'hideothers'
+            }, {
+                label: 'Show All',
+                role: 'unhide'
+            }, {
+                type: 'separator'
+            }, {
+                label: 'Quit',
+                accelerator: 'Command+Q',
+                click: function () {
+                    app.quit()
+                }
+            }]
+        })
+
+        this.addUpdateMenuItems(template[0].submenu, 1)
+    }
+
     init() {
-
         if (process.platform === 'darwin') {
-
-            const name = remote.app.getName()
-
-            log('electron.app', name)
-            template.unshift({
-                label: name,
-                submenu: [{
-                    label: `About ${name}`,
-                    role: 'about'
-                }, {
-                    type: 'separator'
-                }, {
-                    label: 'Services',
-                    role: 'services',
-                    submenu: []
-                }, {
-                    type: 'separator'
-                }, {
-                    label: `Hide ${name}`,
-                    accelerator: 'Command+H',
-                    role: 'hide'
-                }, {
-                    label: 'Hide Others',
-                    accelerator: 'Command+Alt+H',
-                    role: 'hideothers'
-                }, {
-                    label: 'Show All',
-                    role: 'unhide'
-                }, {
-                    type: 'separator'
-                }, {
-                    label: 'Quit',
-                    accelerator: 'Command+Q',
-                    click: function () {
-                        app.quit()
-                    }
-                }]
-            })
-
-            this.addUpdateMenuItems(template[0].submenu, 1)
+            this.defaultMenuItem()
         }
 
         if (process.platform === 'win32') {
@@ -119,7 +120,9 @@ class GwMenu {
         Menu.setApplicationMenu(menu)
 
         let reopenMenuItem = this.findReopenMenuItem()
-        if (reopenMenuItem) reopenMenuItem.enabled = false
+        if (reopenMenuItem) {
+            reopenMenuItem.enabled = false
+        }
 
         if (reopenMenuItem) {
             reopenMenuItem.enabled = true

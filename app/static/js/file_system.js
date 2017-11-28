@@ -1,12 +1,29 @@
 
 const fs = require('fs');
+const {log} = require('./utils.js')
 const {dialog} = require('electron').remote;
+
+class GwDialog {
+    constructor() {
+
+    }
+
+    static open() {
+        dialog.showOpenDialog((fileNames) => {
+            // fileNames is an array that contains all the selected
+            log('filename', fileNames)
+        });
+    }
+}
+
+
 
 const closeParent = (target, element) => {
     var ele = e(element)
     var par = target.parentElement
     log('par', par)
 }
+
 
 const createFile = function (content) {
     // let content = "Some text to save into the file";
@@ -107,3 +124,5 @@ const readMultiFile = function (fileNames) {
         ]
     });
 }
+
+module.exports.GwDialog = GwDialog
