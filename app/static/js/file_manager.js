@@ -7,8 +7,7 @@ class FileManager {
 		this.filePath = ''
 	}
 
-	static
-	new (...args) {
+	static new (...args) {
 		this.i = this.i || new this(...args)
 		return this.i
 	}

@@ -11,6 +11,10 @@ $ cd electron-quick-start
 # 安装依赖并运行
 $ npm install && npm start
 
+
+# 打包
+npm install --save-dev electron
+
 ~: cd app
 ~: electron .
 ```

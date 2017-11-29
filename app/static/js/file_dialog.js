@@ -16,6 +16,11 @@ class FileDialog {
                 //'multiSelections',
         ]}
         dialog.showOpenDialog(options, (fileNames) => {
+            if (fileNames === undefined){
+                log("You didn't add the file");
+                return;
+            }
+
             let text = ''
             let fileName = ''
             if (fileNames.length > 0) {
@@ -23,6 +28,7 @@ class FileDialog {
                 text = fs.readFileSync(fileName, 'utf8');
             } else {
                 text = ''
+                fileName = ''
             }
             callback(text, fileName)
         });
@@ -44,6 +50,29 @@ class FileDialog {
                 }
 
             });
+        });
+    }
+
+    static openDir(callback) {
+        let options ={
+            properties: [
+                // 'openFile',
+                'openDirectory',
+                //'multiSelections',
+        ]}
+        dialog.showOpenDialog(options, (dirs) => {
+            if (dirs === undefined){
+                log("You didn't add the file");
+                return;
+            }
+            let dir = dirs[0]
+            let files = fs.readdirSync(dir);
+
+            let filter = files.filter((value, index) => {
+                return value[0] != '.'
+            })
+
+            callback(dir, filter)
         });
     }
 

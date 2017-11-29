@@ -15,7 +15,7 @@ class MarkdownEdit {
 	}
 
 	setSrc(txt) {
-		this.src.value = txt
+		this.src.innerText = txt
 	}
 
 	setResult(txt) {
@@ -26,14 +26,15 @@ class MarkdownEdit {
 	}
 
 	getSrc() {
-		return this.src.value
+		return this.src.innerText
 	}
 
 	// markdown 事件监听
 	markdownListener () {
 		let self = this
 	    this.src.addEventListener('input', function(event) {
-	        let src = event.target.value
+	        // let src = event.target.value
+			let src = self.getSrc()
 			self.setResult(src)
 	        // let md = new Remarkable()
 	        // let html = md.render(src)

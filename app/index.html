@@ -5,7 +5,8 @@
     <title>Markdown-Editor</title>
     <link rel="stylesheet" href="./static/css/common.css">
 
-    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./static/lib/font-awesome/css/font-awesome.min.css">
 
     <!-- highlight 语法高亮 -->
     <link rel="stylesheet" href="./static/lib/atom-one-light.min.css">
@@ -28,7 +29,8 @@
 
     <div class="main-left-panel">
       <div class="editor-src">
-        <textarea class="input-src" id='id-input-src' name="name" rows="38" cols="40"></textarea>
+        <!-- <textarea class="input-src" id='id-input-src' name="name" rows="38" cols="40"></textarea> -->
+        <div class="input-src" contenteditable="true" id='id-input-src' name="name" ></div>
       </div>
     </div>
 
@@ -38,19 +40,16 @@
     </div>
   </div>
 
-  <div class="cover-bottom">
+  <!-- <div class="cover-bottom">
     <div class="button-bottom l10n-title" id="button-bottom-menu" title="菜单" data-origin-title="Menu">
           <i id="id-slide-btn" class="fa fa-bars" aria-hidden="true"></i>
     </div>
-  </div>
-
-
-
+  </div> -->
 </div>
 
 
 <!-- // style="display: none" -->
-  <div id="id-slidemenu" class="showhide" >
+  <!-- <div id="id-slidemenu" class="showhide" >
     <div class="side-menu" style="margin-left: 0px;">
             <div id="logo">MOEDITOR</div>
             <ul class="slidemenu-ul">
@@ -66,7 +65,7 @@
                 <li id="id-about" data-action="about" class="l10n" data-origin-text="About">关于</li>
             </ul>
         </div>
-  </div>
+  </div> -->
 
 </body>
 </html>

@@ -15,6 +15,7 @@ const template_file = {
     click: menuFile.open,
 	}, {
 	label: 'Add Project Folder',
+    click: menuFile.addProjectFolder,
 	}, {
 	label: 'Reopen Project',
 	}, {
