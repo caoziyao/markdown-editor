@@ -1,4 +1,5 @@
 const Remarkable = require('remarkable');
+const {log, e} = require('./utils.js')
 
 class MarkdownEdit {
 	constructor() {

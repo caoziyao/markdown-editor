@@ -16,6 +16,14 @@ class FileManager {
 	save(path, content) {
 		fs.writeFileSync(path, content, 'utf8');
 	}
+
+	updateFileInfo(filePath) {
+		if (filePath) {
+			let fileName = filePath.split('/').pop()
+			this.filePath = filePath
+			this.fileName = fileName
+		}
+	}
 }
 
 

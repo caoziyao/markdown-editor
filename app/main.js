@@ -16,7 +16,7 @@ let mainWindow;
 
 function createWindow() {
     // 创建浏览器窗口。
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({width: 1200, height: 800});
 
     // 加载应用的 index.html。
     mainWindow.loadURL(`file://${__dirname}/index.html`);

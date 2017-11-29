@@ -7,10 +7,19 @@
 var exports = module.exports;
 */
 
-const e = sel => document.querySelector(sel);
+const _e = sel => document.querySelector(sel);
+const _es = sel => document.querySelectorAll(sel);
 const log = console.log.bind(console);
 
+const removeClass = (element, cls) => {
+	let es = _es(element)
+	for (let i = 0; i < es.length; i++) {
+		let e = es[i]
+		e.classList.remove(cls)
+	}
+}
 
-
-module.exports.e = e;
-module.exports.log = log;
+module.exports.e = _e
+module.exports.es = _es
+module.exports.log = log
+module.exports.removeClass = removeClass

@@ -9,13 +9,13 @@ class FileDialog {
     }
 
     static open(callback) {
-        let properties ={
+        let options ={
             properties: [
                 'openFile',
                 //'openDirectory',
                 //'multiSelections',
         ]}
-        dialog.showOpenDialog(properties, (fileNames) => {
+        dialog.showOpenDialog(options, (fileNames) => {
             let text = ''
             let fileName = ''
             if (fileNames.length > 0) {
@@ -28,9 +28,26 @@ class FileDialog {
         });
     }
 
+    static new(content, callback) {
+        dialog.showSaveDialog((fileName) => {
+            if (fileName === undefined){
+                log("You didn't save the file");
+                return;
+            }
+            // fileName is a string that contains the path and filename created in the save file dialog.
+            fs.writeFile(fileName, content, (err) => {
+                if(err){
+                    alert("An error ocurred creating the file "+ err.message)
+                } else {
+                    callback(fileName)
+                //    alert("The file has been succesfully saved");
+                }
+
+            });
+        });
+    }
+
 }
-
-
 
 const closeParent = (target, element) => {
     var ele = e(element)
@@ -38,27 +55,6 @@ const closeParent = (target, element) => {
     log('par', par)
 }
 
-
-const createFile = function (content) {
-    // let content = "Some text to save into the file";
-
-    // You can obviously give a direct path without use the dialog (C:/Program Files/path/myfileexample.txt)
-    dialog.showSaveDialog((fileName) => {
-        if (fileName === undefined){
-            console.log("You didn't save the file");
-            return;
-        }
-
-        // fileName is a string that contains the path and filename created in the save file dialog.
-        fs.writeFile(fileName, content, (err) => {
-            if(err){
-                alert("An error ocurred creating the file "+ err.message)
-            }
-
-            alert("The file has been succesfully saved");
-        });
-    });
-}
 
 
 const readSingleFile = function () {

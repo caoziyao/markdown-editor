@@ -53,8 +53,17 @@ input:focus, textarea:focus {
 .project-window {
     height: 800px;
     width: 20%;
-    background-color: black;
+    background-color: #22252a;
     display: inline-block;
+    color: #9ae5b3;
+}
+
+.project-window-li:hover {
+    background-color: #2d3139;
+}
+
+.active {
+    background-color: #2d3139;
 }
 
 /*button*/

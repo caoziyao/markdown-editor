@@ -1,4 +1,5 @@
 
+const {log, e} = require('./utils.js')
 
 // 新建按钮
 const newListener = function () {
