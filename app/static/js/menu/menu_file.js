@@ -70,8 +70,6 @@ const addProjectFolder = () => {
 		let target = e(pj.ul)
 		pj.addDir(target, dir)
 		//pj.addProjectFolder(target, dirlist, filelist)
-
-
 	})
 }
 

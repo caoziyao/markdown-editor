@@ -1,7 +1,5 @@
 const electron = require('electron');
-const play = require('./control/player')
-
-// play.play()
+// const play = require('./control/player')
 
 // 控制应用生命周期的模块。
 const {app} = electron;

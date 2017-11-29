@@ -18,3 +18,17 @@ $ npm install && npm start
 # 打包
 - npm install --save-dev electron
 - 执行 npm run-script package 开始打包
+
+
+## Credits
+
+This software uses code from several open source packages.
+
+- [Electron](http://electron.atom.io/)
+- [Node.js](https://nodejs.org/)
+- [highlight.js](https://highlightjs.org/)
+- [fontawesome](http://fontawesome.io/)
+- [remarkable](https://github.com/jonschlinkert/remarkable)
+- [Moeditor](https://github.com/Moeditor/Moeditor)
+- [CodeMirror](http://codemirror.net/)
+- [Emojis are taken from](https://github.com/arvida/emoji-cheat-sheet.com)
