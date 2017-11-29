@@ -21,11 +21,12 @@ https://github.com/Moeditor/Moeditor
 7. x 文件列表
 8. x 打开 debug 功能
 9. 打开最近文件
-10. 打开目录
+10. x 打开目录
 11. 导出 html
 12. 导出 pdf
-13. 目录树
+13. x 目录树
 14. 图标
+15. 读取图片
 
 
 

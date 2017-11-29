@@ -1,3 +1,4 @@
 app/node_modules/*
+aaapp/static/lib/*
 .idea/*
 dict/*
