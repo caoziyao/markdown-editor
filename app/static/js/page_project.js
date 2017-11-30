@@ -3,7 +3,7 @@ const {log, e, es, removeClass} = require('./utils.js')
 const fs = require('fs')
 const fspath = require("path")
 const {MarkdownEdit} = require('./page_markdown_edit.js')
-const {FileManager} = require('./file_manager.js')
+const FileManager = require('./file_manager.js')
 
 class PageProject {
 	constructor() {
@@ -113,7 +113,7 @@ class PageProject {
 				let name = value.split('/').pop()
 				return name[0] != '.'
 			})
-			log('aaaa', filterDir)
+			// log('aaaa', filterDir)
 			this.addProjectFolder(target, filterDir, filelist)
 			target.classList.remove('collapsed')
 			target.classList.add('expanded')
@@ -141,6 +141,10 @@ class PageProject {
 			let md = MarkdownEdit.new()
 			let fm = FileManager.new()
 			let target = event.target
+			if (target.tagName === 'I') {
+				//  图标
+				target = target.closest(self.li)
+			}
 			let path = target.dataset.path
 
 			let stats = fs.statSync(path)

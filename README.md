@@ -3,10 +3,10 @@ A simple, in-browser, markdown, slideshow tool.
 
 ```
 # 克隆示例项目的仓库
-$ git clone https://github.com/electron/electron-quick-start
+$ git clone https://github.com/caoziyao/markdown-editor.git
 
 # 进入这个仓库
-$ cd electron-quick-start
+$ cd markdown-editor
 
 # 安装依赖并运行
 $ npm install && npm start
@@ -15,7 +15,7 @@ $ npm install && npm start
 ~: electron .
 ```
 
-# 打包
+## package
 - npm install --save-dev electron
 - 执行 npm run-script package 开始打包
 

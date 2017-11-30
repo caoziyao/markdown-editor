@@ -16,7 +16,7 @@ https://github.com/Moeditor/Moeditor
 6. x 保存文件
 7. x 文件列表
 8. x 打开 debug 功能
-9. 打开最近文件
+9. x 打开最近文件
 10. x 打开目录
 11. 导出 html
 12. 导出 pdf

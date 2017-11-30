@@ -1,8 +1,8 @@
 const {log, e} = require('../utils.js')
 const {FileDialog} = require('../file_dialog.js')
 const {MarkdownEdit} = require('../page_markdown_edit.js')
-const {FileManager} = require('../file_manager.js')
 const {PageProject} = require('../page_project.js')
+const FileManager = require('../file_manager.js')
 const path = require("path")
 const fs = require("fs")
 
@@ -69,14 +69,43 @@ const addProjectFolder = () => {
 
 		let target = e(pj.ul)
 		pj.addDir(target, dir)
+		fm.addHistoryDir(dir)
 		//pj.addProjectFolder(target, dirlist, filelist)
 	})
 }
 
+const _addDir = (dir)=> {
+	let pj = PageProject.new()
+	let target = e(pj.ul)
+	pj.addDir(target, dir)
+}
+
+const reopenProjectItem = () => {
+	let subitem = []
+	let fm = FileManager.new()
+	let items = fm.loadHistoryDir()
+	for (let i=0; i < items.length; i++) {
+		let item = items[i]
+		let t = {
+			label: item,
+			click: function() {
+				_addDir(item)
+			},
+		}
+		subitem.push(t)
+	}
+	return subitem
+}
+const clearProjectHistory = () => {
+	let fm = FileManager.new()
+	fm.cleanHistoryDir()
+}
 
 module.exports = {
 	newFile: newFile,
 	open: open,
 	save: save,
 	addProjectFolder: addProjectFolder,
+	reopenProjectItem: reopenProjectItem,
+	clearProjectHistory: clearProjectHistory,
 }

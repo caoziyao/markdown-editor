@@ -19,7 +19,6 @@ class GwMenu {
         if (process.mas) {
             return
         }
-
         const version = remote.app.getVersion()
         let updateItems = [{
             label: `Version ${version}`,

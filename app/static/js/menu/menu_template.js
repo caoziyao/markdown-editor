@@ -1,8 +1,6 @@
 const {log} = require('../utils.js')
 const menuFile = require('./menu_file.js')
 
-log('menuFile', menuFile)
-
 const template_file = {
   label: 'File',
   submenu: [{
@@ -18,6 +16,10 @@ const template_file = {
     click: menuFile.addProjectFolder,
 	}, {
 	label: 'Reopen Project',
+    submenu: [{
+      	 label: 'Clear Project History',
+         click: menuFile.clearProjectHistory,
+        }, { type: 'separator'},].concat(menuFile.reopenProjectItem())
 	}, {
 	label: 'Reopen Last Item',
 	}, {
