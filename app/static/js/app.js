@@ -4,7 +4,7 @@ const {remote} = require('electron');
 const {Menu, BrowserWindow, MenuItem, shell} = remote;
 const {GwMenu} = require('./static/js/menu/menu.js')
 const MarkdownEdit = require('./static/js/page_markdown_edit.js')
-
+const {startTask} = require('./static/js/watchfile.js')
 
 const initMenu = function () {
     let menu = GwMenu.new()
@@ -23,4 +23,5 @@ const __main = function () {
 
 window.onload = function () {
     __main()
+    //startTask()
 }

@@ -31,9 +31,10 @@ const open = () => {
 const save = () => {
 	let fm = FileManager.new()
 	let md = MarkdownEdit.new()
+	let pt = PageTitle.new()
+
 	let path = fm.filePath
 	let content = md.getSrc()
-	let pt = PageTitle.new()
 
 	if (path === '') {
 		FileDialog.new(content, function(filePath) {

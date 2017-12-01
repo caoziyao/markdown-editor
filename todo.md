@@ -26,8 +26,7 @@ https://github.com/Moeditor/Moeditor
 16. x 读取图片
 17. x title 显示当前路径
 18. x title 显示修改情况
-19. 自动保存文件
-20. 添加 tab 功能
+19. x 自动保存文件
 
 右键功能：
 1. 新建文件
