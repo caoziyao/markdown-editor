@@ -78,13 +78,6 @@ class FileDialog {
 
 }
 
-const closeParent = (target, element) => {
-    var ele = e(element)
-    var par = target.parentElement
-    log('par', par)
-}
-
-
 
 const readSingleFile = function () {
     dialog.showOpenDialog((fileNames) => {
@@ -164,4 +157,4 @@ const readMultiFile = function (fileNames) {
     });
 }
 
-module.exports.FileDialog = FileDialog
+module.exports = FileDialog

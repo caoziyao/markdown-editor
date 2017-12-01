@@ -5,8 +5,6 @@ const fs = require('fs')
 
 class FileManager {
 	constructor() {
-		this.fileName = ''
-		this.filePath = ''
 		this.setup()
 	}
 
@@ -16,8 +14,14 @@ class FileManager {
 	}
 
 	setup() {
+		this.filterExtNames = ['.docx', '.doc',]
+		this.picExtNames = ['.png', '.jpg', '.jpeg']
+		this.fileName = ''
+		this.filePath = ''
+		this.changed = false
 		this.historyDir = this.loadHistoryDir()
 	}
+
 
 	save(path, content) {
 		fs.writeFileSync(path, content, 'utf8');
@@ -45,6 +49,12 @@ class FileManager {
 			this.filePath = filePath
 			this.fileName = fileName
 		}
+	}
+
+	changedStatus(status) {
+		// this.changed  状态
+		// true: 改变未保存。 false 已经保存
+		this.changed = status
 	}
 
 }

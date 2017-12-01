@@ -29,14 +29,15 @@ input:focus, textarea:focus {
 .main{
   display: flex;
   justify-content: space-between;
-  height: 1800px;
+  /*height: 1800px;*/
+  /*height: calc(100% - 25px);*/
   overflow-y: auto;
 }
 
 
 .main-left-panel{
   width: 40%;
-  height: calc(100% - 25px);
+  /*height: calc(100% - 25px);*/
   background-color: rgb(245, 245, 245);
   padding-left: 10px;
   margin-top: 20px
@@ -44,22 +45,24 @@ input:focus, textarea:focus {
 
 
 .main-right-panel{
-  background-color: #fff;
+    background-color: #fff;
   width: 40%;
-  height: calc(100% - 25px);
+  /*height: calc(100% - 25px);*/
   /*padding: 10px;*/
-  height: 1800px;
+  /*height: 1800px;*/
   border: 1px solid lightblue;
+  padding-left: 10px;
 }
 
 .editor-result {
   padding-left: 20px;
+  background-color: #fff;
 }
 
 
 /* project-window */
 .project-window {
-    height: 1800px;
+    min-height: 1240px;
     width: 20%;
     background-color: #22252a;
     display: inline-block;

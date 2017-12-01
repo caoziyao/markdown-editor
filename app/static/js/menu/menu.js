@@ -7,7 +7,6 @@ const app = remote.app
 
 class GwMenu {
     constructor() {
-
     }
 
 	static

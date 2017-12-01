@@ -1,8 +1,10 @@
 const {log, e} = require('../utils.js')
-const {FileDialog} = require('../file_dialog.js')
-const {MarkdownEdit} = require('../page_markdown_edit.js')
-const {PageProject} = require('../page_project.js')
+const FileDialog = require('../file_dialog.js')
+const MarkdownEdit = require('../page_markdown_edit.js')
+const PageProject = require('../page_project.js')
 const FileManager = require('../file_manager.js')
+const PageTitle = require('../page_title.js')
+
 const path = require("path")
 const fs = require("fs")
 
@@ -31,6 +33,7 @@ const save = () => {
 	let md = MarkdownEdit.new()
 	let path = fm.filePath
 	let content = md.getSrc()
+	let pt = PageTitle.new()
 
 	if (path === '') {
 		FileDialog.new(content, function(filePath) {
@@ -39,9 +42,13 @@ const save = () => {
 
 			let target = e(pj.ul)
 			pj.addFile(target, filePath)
+			fm.changedStatus(false)
+			pt.updateTitleStatus(false)
 		})
 	} else {
 		fm.save(path, content)
+		fm.changedStatus(false)
+		pt.updateTitleStatus(false)
 	}
 }
 

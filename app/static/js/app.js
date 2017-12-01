@@ -3,7 +3,7 @@ const {log, e} = require('./static/js/utils.js')
 const {remote} = require('electron');
 const {Menu, BrowserWindow, MenuItem, shell} = remote;
 const {GwMenu} = require('./static/js/menu/menu.js')
-const {MarkdownEdit} = require('./static/js/page_markdown_edit.js')
+const MarkdownEdit = require('./static/js/page_markdown_edit.js')
 
 
 const initMenu = function () {

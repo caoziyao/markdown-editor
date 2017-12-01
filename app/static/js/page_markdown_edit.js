@@ -1,5 +1,7 @@
-const Remarkable = require('remarkable');
 const {log, e} = require('./utils.js')
+const Remarkable = require('remarkable');
+const PageTitle = require('./page_title.js')
+const FileManager = require('./file_manager.js')
 
 class MarkdownEdit {
 	constructor() {
@@ -8,8 +10,7 @@ class MarkdownEdit {
 		this.result = e('.editor-result')
     }
 
-	static
-	new (...args) {
+	static new (...args) {
 		this.i = this.i || new this(...args)
 		return this.i
 	}
@@ -25,6 +26,11 @@ class MarkdownEdit {
 		this.renderHightLine()
 	}
 
+	setPicture(img) {
+		this.src.innerHTML = img
+		this.result.innerHTML = ''
+	}
+
 	getSrc() {
 		return this.src.innerText
 	}
@@ -32,14 +38,14 @@ class MarkdownEdit {
 	// markdown 事件监听
 	markdownListener () {
 		let self = this
+		let pt = PageTitle.new()
+		let fm = FileManager.new()
 	    this.src.addEventListener('input', function(event) {
 	        // let src = event.target.value
+			fm.changedStatus(true)
+			pt.updateTitleStatus(true)
 			let src = self.getSrc()
 			self.setResult(src)
-	        // let md = new Remarkable()
-	        // let html = md.render(src)
-	        // self.result.innerHTML = html
-			// self.renderHightLine()
 	    })
 	}
 
@@ -59,4 +65,4 @@ class MarkdownEdit {
 }
 
 
-module.exports.MarkdownEdit = MarkdownEdit;
+module.exports = MarkdownEdit;

@@ -1,5 +1,6 @@
 const electron = require('electron');
-// const play = require('./control/player')
+// const {log} = require('./static/js/utils.js')
+// const FileManager = require('./static/js/file_manager.js')
 
 // 控制应用生命周期的模块。
 const {app} = electron;
@@ -36,6 +37,7 @@ function createWindow() {
 // 创建浏览器窗口时，调用这个函数。
 // 部分 API 在 ready 事件触发后才能使用。
 app.on('ready', createWindow);
+
 
 
 // 当全部窗口关闭时退出。
