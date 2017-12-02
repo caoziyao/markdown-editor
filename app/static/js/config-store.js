@@ -5,16 +5,18 @@ const configDefault = require('./config-default')
 
 class Configstore {
 	constructor(name, config) {
-		for (let k of Object.keys(config)) {
-			this[k] = config[k]
-		}
+		this.name = name
+		this.config = config
 	}
 
 	static new (...args) {
 		this.i = this.i || new this(...args)
 		return this.i
 	}
+
+	get(item) {
+		return this.config[item]
+	}
 }
 
-const option = Configstore.new(Const.name, configDefault)
-module.exports = option
+module.exports = Configstore.new(Const.name, configDefault)

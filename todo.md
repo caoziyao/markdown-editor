@@ -27,6 +27,8 @@ https://github.com/Moeditor/Moeditor
 17. x title 显示当前路径
 18. x title 显示修改情况
 19. x 自动保存文件
+20. 设置页面
+21. 拉动隐藏
 
 右键功能：
 1. 新建文件
@@ -35,10 +37,14 @@ https://github.com/Moeditor/Moeditor
 4. show in Finder
 5. 新建文件夹
 6. 重命名
+7. 右键移除文件
 
 feature:
 1. 自定义字体/行高/字体大小
 2. atom 自定义图标
+3. 自定义皮肤
+
+插件支持：
 
 
 

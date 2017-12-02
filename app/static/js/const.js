@@ -1,10 +1,10 @@
 
-
-// const app = require('electron').remove,
-    //   pkg = require('../package.json'),
-    //   appPath = app.getAppPath();
+const {log} = require('./utils.js')
+const {remote} = require('electron');
+const app = remote.app
+const appPath = app.getAppPath();
 
 module.exports = {
     name: "MdEditor",
-    path: 'appPath'
+    path: appPath,
 };

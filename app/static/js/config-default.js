@@ -1,6 +1,5 @@
 
 
-
 module.exports = {
     'locale': 'default',
     'debug': false,
@@ -18,6 +17,7 @@ module.exports = {
     'uml-diagrams': true,
     'auto-reload': 'auto',
     'auto-save': 'disabled',
+    'auto-save-ms': 1000,
     'highlight-theme': 'github',
     'render-theme': 'GitHub',
     'custom-render-themes': {},

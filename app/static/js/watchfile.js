@@ -21,9 +21,10 @@ const save = () => {
 
 const startTask = () => {
 
-	let ms = 1000
+	let ms = config.get('auto-save-ms')
 	let fm = FileManager.new()
-	const auto = config['auto-save'];
+	const auto = config.get('auto-save');
+
 	setInterval( () => {
 		if (fm.changed && ( auto === 'enabled')) {
 			save()
@@ -34,5 +35,6 @@ const startTask = () => {
 }
 
 module.exports = {
-	startTask: startTask
+	startTask: startTask,
+	save: save,
 }
