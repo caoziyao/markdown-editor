@@ -56,7 +56,6 @@ class FileManager {
 		// true: 改变未保存。 false 已经保存
 		this.changed = status
 	}
-
 }
 
 
