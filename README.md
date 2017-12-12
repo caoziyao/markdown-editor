@@ -32,3 +32,5 @@ This software uses code from several open source packages.
 - [Moeditor](https://github.com/Moeditor/Moeditor)
 - [CodeMirror](http://codemirror.net/)
 - [Emojis are taken from](https://github.com/arvida/emoji-cheat-sheet.com)
+
+![screenshots](./screenshots/screenshots.gif)
